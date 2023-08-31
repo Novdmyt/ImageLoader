@@ -12,11 +12,11 @@ public class FileViewer implements ImageViewer{
                 typeFile.equalsIgnoreCase("png"))
         {
             imageAdapter = new ImageAdapter(typeFile);
-            imageAdapter.image(nameFile, typeFile);
+            imageAdapter.image(typeFile, nameFile);
         }
         else
         {
-            System.out.println("Invalid media. " + typeFile + " format not supported");
+            System.out.println("Invalid media: format "+ "."+typeFile + " not supported");
         }
     }
 }
