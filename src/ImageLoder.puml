@@ -1,0 +1,35 @@
+@startuml
+class app.viewer.PdfViewer {
++ void viewerPdf(String)
++ void viewerPng(String)
+}
+interface app.viewer.ImageViewer {
+~ void image(String,String)
+}
+class app.adapter.ImageAdapter {
+~ Viewer viewer
++ <<Create>> ImageAdapter(String)
++ void image(String,String)
+}
+class app.viewer.PngViewer {
++ void viewerPdf(String)
++ void viewerPng(String)
+}
+interface app.viewer.Viewer {
+~ void viewerPdf(String)
+~ void viewerPng(String)
+}
+class app.Main {
++ {static} void main(String[])
+}
+class app.viewer.FileViewer {
+~ ImageAdapter imageAdapter
++ void image(String,String)
+}
+
+
+app.viewer.Viewer <|.. app.viewer.PdfViewer
+app.viewer.ImageViewer <|.. app.adapter.ImageAdapter
+app.viewer.Viewer <|.. app.viewer.PngViewer
+app.viewer.ImageViewer <|.. app.viewer.FileViewer
+@enduml
